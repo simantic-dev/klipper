@@ -1,0 +1,11 @@
+# Klipper STM32F446 firmware + a scripted Klipper host on USART2. Run from this directory:
+#   sim run --scenario scenario.yaml --timeout 0.3 --record ./rec   (klipper.elf from `make`, see README)
+machines:
+  mcu:
+    mcu: STM32F446RE
+    overlay: peer.board
+    elf: klipper.elf
+media:
+  - type: uart
+    connect: [mcu.usart2, mcu.host]
+quantum: 0.00001

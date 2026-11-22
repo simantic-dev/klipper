@@ -1,0 +1,3 @@
+host: UART.ScriptedUartPeer @ sysbus 0x60200000
+    file: "klipper_host_peer.py"
+    baudRate: 250000
