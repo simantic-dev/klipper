@@ -5,6 +5,8 @@ cd "$(dirname "$0")/.."
 rm -rf out
 cp sim/k446.config .config
 # CPP override: macOS `cpp` cannot preprocess the .lds.S; olddefconfig must run before `make` creates out/board
-make olddefconfig
-make -j4 CPP=arm-none-eabi-cpp
+# GNU Make >= 4 needed: macOS make 3.81 links out/board to src/ (empty CONFIG_BOARD_DIRECTORY)
+MAKE=$(command -v gmake || echo make)
+$MAKE olddefconfig
+$MAKE -j4 CPP=arm-none-eabi-cpp
 arm-none-eabi-size out/klipper.elf
