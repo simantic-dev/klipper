@@ -1,3 +1,6 @@
+// 8 MHz HSE: Klipper k446.config CONFIG_CLOCK_REF_FREQ=8000000
+rcc:
+    hseFrequency: 8000000
 host: UART.ScriptedUartPeer @ sysbus 0x60200000
     file: "klipper_host_peer.py"
     baudRate: 250000
